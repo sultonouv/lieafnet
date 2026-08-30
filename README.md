@@ -128,12 +128,13 @@ python vaihingen_test.py -c config/vaihingen/lieafnet.py -o fig_results/vaihinge
 python potsdam_test.py   -c config/potsdam/lieafnet.py   -o fig_results/potsdam/lieafnet   -t d4 --rgb
 ```
 
-**`-t d4` (test-time augmentation: horizontal/vertical flip, 90° rotation, multi-scale `[0.75, 1.0, 1.25]`) is required to reproduce the paper's reported numbers.** Running without `-t` evaluates single-scale, no-augmentation performance, which is lower (e.g. ~82.3% vs. 83.6% mIoU on Vaihingen) — both are legitimate numbers, just not the same protocol. We verified both checkpoints reproduce the paper's exact reported mIoU/mF1/OA under `-t d4` before publishing this repository.
+**`-t d4` (test-time augmentation: horizontal/vertical flip, 90° rotation, multi-scale `[0.75, 1.0, 1.25]`) is required to reproduce the paper's reported numbers.** Running without `-t` evaluates single-scale, no-augmentation performance, which is lower on both datasets (82.31% vs. 83.59% mIoU on Vaihingen; 85.71% vs. 86.45% mIoU on Potsdam) — both are legitimate numbers, just not the same protocol. We verified both checkpoints reproduce the paper's exact reported mIoU/mF1/OA under `-t d4` before publishing this repository.
 
 `compute_flops.py -c <config>` reports parameters and GFLOPs for any config's model (used for the paper's Table II parameter/GFLOPs figures):
 
 ```bash
 python compute_flops.py -c config/vaihingen/lieafnet.py --size 1024
+python compute_flops.py -c config/potsdam/lieafnet.py   --size 1024
 ```
 
 ## Repository structure
