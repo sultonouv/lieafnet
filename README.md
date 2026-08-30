@@ -155,14 +155,8 @@ If you use LiEAF-Net in your research, please cite:
 }
 ```
 
-*(This paper has been accepted but not yet published. Once IEEE posts an Early Access version, add its `doi` and change `note` to `Early Access`; once it's assigned to an issue, replace `note` with `volume`, `number`, and `pages`.)*
+*(This paper has been accepted but not yet published)*
 
 ## License and acknowledgments
 
-This repository is released under the **GNU General Public License v3.0** (see `LICENSE`).
-
-The training pipeline here — `train_supervision.py`, `vaihingen_test.py`, `potsdam_test.py`, `tools/`, `geoseg/losses/`, and the dataset-loading structure under `geoseg/datasets/` — is adapted from **[GeoSeg](https://github.com/WangLibo1995/GeoSeg)** by Libo Wang et al., an excellent open-source semantic segmentation toolbox for remote sensing imagery built on PyTorch, PyTorch Lightning, and timm. GeoSeg is licensed under GPL-3.0, and this repository is distributed under the same license as a derivative work, per GPL-3.0's terms. We're grateful to Libo Wang and contributors for releasing GeoSeg as a clean, well-structured base for remote sensing segmentation research — it made this project's training/eval pipeline possible. If you use this repository, please consider also citing GeoSeg: [https://github.com/WangLibo1995/GeoSeg](https://github.com/WangLibo1995/GeoSeg).
-
-The model architecture itself (`geoseg/models/lieafnet.py`, the EADASK fusion module) is original work for the LiEAF-Net paper.
-
-We also thank the authors of the baseline methods compared against in the paper (RTFNet, CMGFNet, FEANet, SFAFMA, MFMamba, PACSCNet, SiMultiF, HACMNet, LMFNet, CAINet) for releasing their code/results, which made a fair comparison possible.
+Released under **GPL-3.0** (see `LICENSE`). The training pipeline is adapted from **[GeoSeg](https://github.com/WangLibo1995/GeoSeg)** by Libo Wang et al. (also GPL-3.0) — thanks to the GeoSeg authors for the toolbox this builds on, and to the authors of the compared baselines (RTFNet, CMGFNet, FEANet, SFAFMA, MFMamba, PACSCNet, SiMultiF, HACMNet, LMFNet, CAINet) for their code and results.
