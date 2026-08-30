@@ -11,7 +11,24 @@ This repository contains the official PyTorch implementation of **LiEAF-Net**, a
 | ISPRS Vaihingen | **83.59%** | 90.86% | 93.36% | 6.50M | 4.04 | 51.5 |
 | ISPRS Potsdam   | **86.45%** | 92.58% | 91.39% | 6.50M | 4.04 | 51.5 |
 
-See the paper for full comparisons against RTFNet, CMGFNet, FEANet, SFAFMA, MFMamba, PACSCNet, SiMultiF, HACMNet, LMFNet, and CAINet.
+Comparison against state-of-the-art RGB–nDSM fusion methods (Table I of the paper):
+
+| Method | Params (M) | Vaihingen mIoU | Vaihingen mF1 | Vaihingen OA | Potsdam mIoU | Potsdam mF1 | Potsdam OA |
+|---|---|---|---|---|---|---|---|
+| RTFNet-18 | 31.00 | 82.17 | 89.91 | 93.30 | 85.72 | 92.18 | 90.95 |
+| RTFNet-34 | 51.21 | 82.79 | 90.33 | 93.33 | 86.16 | 92.44 | 91.49 |
+| CMGFNet | 43.68 | 79.95 | 88.42 | 92.51 | 82.39 | 90.18 | 88.98 |
+| FEANet | 185.94 | 84.34 | 91.33 | 93.53 | 86.58 | 92.66 | 91.47 |
+| SFAFMA | 232.08 | 84.01 | 91.11 | 93.40 | 85.79 | 92.22 | 91.16 |
+| MFMamba | 62.40 | 84.08 | 91.16 | 93.46 | 85.31 | 91.93 | 90.53 |
+| PACSCNet | 90.00 | 81.24 | 89.30 | 92.97 | 84.39 | 91.42 | 90.70 |
+| SiMultiF† | 42.62 | 81.16 | 89.27 | 91.86 | — | — | — |
+| HACMNet† | — | 82.04 | 89.86 | 91.94 | 84.02 | 91.15 | 91.04 |
+| LMFNet† | 3.72 | 82.49 | 90.44 | 92.02 | 85.51 | 91.81 | 92.20 |
+| CAINet | 13.80 | 82.64 | 90.26 | 93.01 | 85.26 | 91.90 | 90.81 |
+| **LiEAF-Net (ours)** | **6.50** | **83.59** | **90.86** | **93.36** | **86.45** | **92.58** | **91.39** |
+
+† results reported from the original publication; all other baselines were retrained from scratch under identical settings. See the paper for per-class F1 scores and full discussion.
 
 ## Architecture
 
@@ -159,4 +176,4 @@ If you use LiEAF-Net in your research, please cite:
 
 ## License and acknowledgments
 
-Released under **GPL-3.0** (see `LICENSE`). The training pipeline is adapted from **[GeoSeg](https://github.com/WangLibo1995/GeoSeg)** by Libo Wang et al. (also GPL-3.0) — thanks to the GeoSeg authors for the toolbox this builds on, and to the authors of the compared baselines (RTFNet, CMGFNet, FEANet, SFAFMA, MFMamba, PACSCNet, SiMultiF, HACMNet, LMFNet, CAINet) for their code and results.
+Released under **GPL-3.0** (see `LICENSE`). The training pipeline is adapted from **[GeoSeg](https://github.com/WangLibo1995/GeoSeg)** by Libo Wang et al. (also GPL-3.0) — thanks to the GeoSeg authors for the toolbox this builds on.
