@@ -89,8 +89,8 @@ Download both files and place them at:
 
 ```
 model_weights/
-├── vaihingen/lieafnet-vaihingen-512-e100/lieafnet-vaihingen-512-e100.ckpt
-└── potsdam/lieafnet-potsdam-512-e105/lieafnet-potsdam-512-e105.ckpt
+├── vaihingen/lieafnet-vaihingen-512-e100.ckpt
+└── potsdam/lieafnet-potsdam-512-e105.ckpt
 ```
 
 `model_weights/` is git-ignored, so these files are local-only and will never be committed — the training/evaluation scripts below expect them at exactly the paths above.
@@ -102,7 +102,7 @@ python train_supervision.py -c config/vaihingen/lieafnet.py
 python train_supervision.py -c config/potsdam/lieafnet.py
 ```
 
-Each config trains for 100 (Vaihingen) / 105 (Potsdam) epochs with AdamW (lr=6e-4, backbone lr=6e-5, weight decay=1e-2), Lookahead, and cosine warm restarts (T₀=15, T_mult=2), batch size 8, on 512×512 crops. Edit `gpus = [0]` near the top of the config to select a different GPU index, and `max_epoch`/`train_batch_size` if needed. Checkpoints are written to `model_weights/{dataset}/{weights_name}/`.
+Each config trains for 100 (Vaihingen) / 105 (Potsdam) epochs with AdamW (lr=6e-4, backbone lr=6e-5, weight decay=1e-2), Lookahead, and cosine warm restarts (T₀=15, T_mult=2), batch size 8, on 512×512 crops. Edit `gpus = [0]` near the top of the config to select a different GPU index, and `max_epoch`/`train_batch_size` if needed. Checkpoints are written to `model_weights/{dataset}/{weights_name}.ckpt`.
 
 ## Evaluation
 
@@ -132,7 +132,7 @@ lieafnet/
 ├── config/
 │   ├── vaihingen/lieafnet.py      # Main Vaihingen training/eval config
 │   └── potsdam/lieafnet.py        # Main Potsdam training/eval config
-├── model_weights/                 # Trained checkpoints (Git LFS)
+├── model_weights/                 # Trained checkpoints (git-ignored; download from Google Drive)
 ├── train_supervision.py           # Training entrypoint (PyTorch Lightning)
 ├── vaihingen_test.py              # Vaihingen evaluation entrypoint
 ├── potsdam_test.py                # Potsdam evaluation entrypoint

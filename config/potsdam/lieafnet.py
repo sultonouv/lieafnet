@@ -30,7 +30,7 @@ classes = CLASSES
 
 model_name = "lieafnet"
 weights_name = f"{model_name}-potsdam-512-e105"
-weights_path = str(REPO_ROOT / "model_weights" / "potsdam" / weights_name)
+weights_path = str(REPO_ROOT / "model_weights" / "potsdam")
 test_weights_name = weights_name
 log_name = "potsdam/{}".format(weights_name)
 monitor = "val_F1"
