@@ -151,11 +151,11 @@ If you use LiEAF-Net in your research, please cite:
              and Kim, Jeehyun and Yun, Sangseok and Kang, Jae-Mo},
   journal = {IEEE Geoscience and Remote Sensing Letters},
   year    = {2026},
-  note    = {In press}
+  note    = {Accepted}
 }
 ```
 
-*(Update the entry above with the final volume/page/DOI once the paper is officially published.)*
+*(This paper has been accepted but not yet published. Once IEEE posts an Early Access version, add its `doi` and change `note` to `Early Access`; once it's assigned to an issue, replace `note` with `volume`, `number`, and `pages`.)*
 
 ## License and acknowledgments
 
