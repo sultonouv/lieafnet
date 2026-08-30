@@ -110,8 +110,6 @@ model_weights/
 └── potsdam/lieafnet-potsdam-512-e105.ckpt
 ```
 
-`model_weights/` is git-ignored, so these files are local-only and will never be committed — the training/evaluation scripts below expect them at exactly the paths above.
-
 ## Training
 
 ```bash
