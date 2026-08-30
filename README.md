@@ -68,7 +68,7 @@ The first time you build the model, torchvision will download ImageNet-pretraine
 
 ## Data preparation
 
-We use the [ISPRS Vaihingen and Potsdam](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx) benchmarks. These datasets require registration with ISPRS and cannot be redistributed here — download them from the official source, then follow the split and preprocessing below (matching what is reported in the paper).
+We use the [ISPRS Vaihingen and Potsdam](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx) benchmarks. Download them from the official source, then follow the split and preprocessing below (matching what is reported in the paper).
 
 **Splits used in the paper:**
 
