@@ -92,13 +92,11 @@ data/
 └── potsdam/{train,valid,test}/{images_1024,masks_1024,dsm_1024}/
 ```
 
-`data/` is git-ignored — populate it locally, it is never committed.
-
-The dataloaders (`geoseg/datasets/vaihingen_dataset_.py`, `potsdam_dataset_.py`) crop these 1024×1024 patches further to 512×512 during training via random-scale + smart-crop augmentation, and expect the nDSM stored per-pixel in the same coordinate frame as the RGB/mask patch (single-channel, raw scale — the model normalizes it internally).
+The dataloaders (`geoseg/datasets/vaihingen_dataset_.py`, `potsdam_dataset_.py`) crop these 1024×1024 patches further to 512×512 during training via random-scale + smart-crop augmentation, and expect the nDSM stored per-pixel in the same coordinate frame as the RGB/mask patch.
 
 ## Pretrained weights
 
-The final trained checkpoints for the numbers reported in the paper are **not stored in this repository** — they're hosted on Google Drive:
+The final trained checkpoints for the numbers reported in the paper are can be downloaded through the following link:
 
 **[Download LiEAF-Net checkpoints (Google Drive)](https://drive.google.com/drive/folders/1uz5nExgFE1YWkPCZBrtfMTZm4IQ9YPby?usp=sharing)**
 
@@ -117,8 +115,6 @@ python train_supervision.py -c config/vaihingen/lieafnet.py
 python train_supervision.py -c config/potsdam/lieafnet.py
 ```
 
-Each config trains for 100 (Vaihingen) / 105 (Potsdam) epochs with AdamW (lr=6e-4, backbone lr=6e-5, weight decay=1e-2), Lookahead, and cosine warm restarts (T₀=15, T_mult=2), batch size 8, on 512×512 crops. Edit `gpus = [0]` near the top of the config to select a different GPU index, and `max_epoch`/`train_batch_size` if needed. Checkpoints are written to `model_weights/{dataset}/{weights_name}.ckpt`.
-
 ## Evaluation
 
 ```bash
@@ -126,7 +122,7 @@ python vaihingen_test.py -c config/vaihingen/lieafnet.py -o fig_results/vaihinge
 python potsdam_test.py   -c config/potsdam/lieafnet.py   -o fig_results/potsdam/lieafnet   -t d4 --rgb
 ```
 
-**`-t d4` (test-time augmentation: horizontal/vertical flip, 90° rotation, multi-scale `[0.75, 1.0, 1.25]`) is required to reproduce the paper's reported numbers.** Running without `-t` evaluates single-scale, no-augmentation performance, which is lower on both datasets (82.31% vs. 83.59% mIoU on Vaihingen; 85.71% vs. 86.45% mIoU on Potsdam) — both are legitimate numbers, just not the same protocol. We verified both checkpoints reproduce the paper's exact reported mIoU/mF1/OA under `-t d4` before publishing this repository.
+**`-t d4` (test-time augmentation: horizontal/vertical flip, 90° rotation, multi-scale `[0.75, 1.0, 1.25]`) is required to reproduce the paper's reported numbers.
 
 `compute_flops.py -c <config>` reports parameters and GFLOPs for any config's model (used for the paper's Table II parameter/GFLOPs figures):
 
